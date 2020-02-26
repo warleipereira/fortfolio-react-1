@@ -5,6 +5,7 @@ function App() {
   const [location, setLocation] = useState(false);
   const [weather, setWeather] = useState(false);
 
+  //http://api.openweathermap.org/data/2.5/weather?lat=-22.936526999999998&lon=-46.5451609&lang=pt&units=metric&appid=60fa8e5781e3bf127b02138692ee700e
   let getWeather = async (lat, long) => {
     let res = await axios.get("http://api.openweathermap.org/data/2.5/weather", {
       params: {
@@ -40,7 +41,7 @@ if (location == false) {
 } else {
   return (
     <Fragment>
-    
+      <h3 class="Titulo_cidade">{weather['name']}</h3>
       <h3>Clima nas suas Coordenadas ({weather['weather'][0]['description']})</h3>
       <hr/>
       <ul>
